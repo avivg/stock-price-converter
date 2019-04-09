@@ -1,4 +1,4 @@
-import urllib2
+import urllib.request
 
 class StockPriceGetter(object):
     def __init__(self, ticker):
@@ -15,6 +15,6 @@ class StockPriceGetter(object):
         return 'https://api.iextrading.com/1.0/stock/%s/price' % self._tick
 
     def _get_online_stock_price(self, url):
-        contents = urllib2.urlopen(url).read()
+        contents = urllib.request.urlopen(url).read()
         return float(contents)
 

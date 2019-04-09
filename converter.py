@@ -1,4 +1,4 @@
-import urllib2
+import urllib.request
 import json
 
 class CurrencyConverter(object):
@@ -20,7 +20,7 @@ class CurrencyConverter(object):
         return '{f}_{t}'.format(f=self._from, t=self._to)
 
     def _get_online_exchange_rate(self, url):
-        contents = urllib2.urlopen(url)
-        val = json.load(contents)
+        contents = urllib.request.urlopen(url).read()
+        val = json.loads(contents.decode())
         val = val[self._conversion_name()]['val']
         return float(val)
