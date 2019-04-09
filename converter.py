@@ -1,6 +1,8 @@
 import urllib.request
 import json
 
+API_KEY = open('converter_key.txt').readlines()[0]
+
 class CurrencyConverter(object):
     def __init__(self, fr='USD', to='ILS'):
         self._from = fr
@@ -14,7 +16,7 @@ class CurrencyConverter(object):
         return self._get_online_exchange_rate(url)
 
     def _request_url(self):
-        return 'http://free.currencyconverterapi.com/api/v5/convert?q=%s&compact=y' % (self._conversion_name())
+        return 'http://free.currencyconverterapi.com/api/v5/convert?q=%s&compact=y&apiKey=%s' % (self._conversion_name(), API_KEY)
 
     def _conversion_name(self):
         return '{f}_{t}'.format(f=self._from, t=self._to)
