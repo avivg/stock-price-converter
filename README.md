@@ -5,6 +5,7 @@ This is a small utility I built to get a real time combined estimate.
 The uploaded example converts Broadcom (AVGO) share price to Israeli Shekels (ILS).
 
 # Installation:
-
-Add converter_key.txt file with your API key from free.currencyconverterapi.com
+1. get an API key from free.currencyconverterapi.com
+2. python set_converter_key.py
+3. Enter the key you got in step 1
 
